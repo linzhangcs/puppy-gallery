@@ -1,10 +1,10 @@
 /* Globals */
+
 :root {
   --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-serif: Georgia, serif;
   --color-secondary: #333;
   --color-link: #635ac7;
-
   font-family: var(--font-sans);
   font-weight: normal;
   line-height: 1.5;
@@ -19,6 +19,7 @@ a {
 }
 
 /* Snippets */
+
 .site-header {
   padding-bottom: 2rem;
   padding-top: 2rem;
@@ -37,4 +38,22 @@ a {
   color: var(--color);
   font-family: var(--font-serif);
   text-align: center;
+}
+
+.thumbnails-wrapper {
+  color: var(--color);
+  text-align: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ul#thumbnails {
+  padding: 0;
+}
+
+ul#thumbnails li {
+  list-style: none;
+  cursor: pointer;
+  display: inline-block;
 }
