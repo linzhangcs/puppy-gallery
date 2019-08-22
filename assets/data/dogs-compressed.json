@@ -1,77 +1,92 @@
 {
   "dogs": [
   {
-      "image": "/assets/images/compressed/1.jpeg",
+      "image": "/assets/images/compressed/1.jpg",
+      "thumbnail": "/assets/images/thumbnails/1.jpg",
       "source": "https://unsplash.com/photos/ybHtKz5He9Y"
     },
 
     {
-      "image": "/assets/images/compressed/2.jpeg",
+      "image": "/assets/images/compressed/2.jpg",
+      "thumbnail": "/assets/images/thumbnails/2.jpg",
       "source": "https://unsplash.com/photos/rY79kwEEyGo"
     },
 
     {
-      "image": "/assets/images/compressed/3.jpeg",
+      "image": "/assets/images/compressed/3.jpg",
+      "thumbnail": "/assets/images/thumbnails/3.jpg",
       "source": "https://unsplash.com/photos/ngqyo2AYYnE"
     },
 
     {
-      "image": "/assets/images/compressed/4.jpeg",
+      "image": "/assets/images/compressed/4.jpg",
+      "thumbnail": "/assets/images/thumbnails/4.jpg",
       "source": "https://unsplash.com/photos/9A64wd1QaAU"
     },
 
     {
-      "image": "/assets/images/compressed/5.jpeg",
+      "image": "/assets/images/compressed/5.jpg",
+      "thumbnail": "/assets/images/thumbnails/5.jpg",
       "source": "https://unsplash.com/photos/915UJQaxtrk"
     },
 
     {
-      "image": "/assets/images/compressed/6.jpeg",
+      "image": "/assets/images/compressed/6.jpg",
+      "thumbnail": "/assets/images/thumbnails/6.jpg",
       "source": "https://unsplash.com/photos/mx0DEnfYxic"
     },
 
     {
-      "image": "/assets/images/compressed/7.jpeg",
+      "image": "/assets/images/compressed/7.jpg",
+      "thumbnail": "/assets/images/thumbnails/7.jpg",
       "source": "https://unsplash.com/photos/OsOQhAzcEKc"
     },
 
     {
-      "image": "/assets/images/compressed/8.jpeg",
+      "image": "/assets/images/compressed/8.jpg",
+      "thumbnail": "/assets/images/thumbnails/8.jpg",
       "source": "https://unsplash.com/photos/6WneSv56YVI"
     },
 
     {
-      "image": "/assets/images/compressed/9.jpeg",
+      "image": "/assets/images/compressed/9.jpg",
+      "thumbnail": "/assets/images/thumbnails/9.jpg",
       "source": "https://unsplash.com/photos/CdVG9f96kyg"
     },
 
     {
-      "image": "/assets/images/compressed/10.jpeg",
+      "image": "/assets/images/compressed/10.jpg",
+      "thumbnail": "/assets/images/thumbnails/10.jpg",
       "source": "https://unsplash.com/photos/bVA2DI7c9e8"
     },
 
     {
-      "image": "/assets/images/compressed/11.jpeg",
+      "image": "/assets/images/compressed/11.jpg",
+      "thumbnail": "/assets/images/thumbnails/11.jpg",
       "source": "https://unsplash.com/photos/GvhSUEN-Lm8"
     },
 
     {
-      "image": "/assets/images/compressed/12.jpeg",
+      "image": "/assets/images/compressed/12.jpg",
+      "thumbnail": "/assets/images/thumbnails/12.jpg",
       "source": "https://unsplash.com/photos/t2XHKIdc4Kw"
     },
 
     {
-      "image": "/assets/images/compressed/13.jpeg",
+      "image": "/assets/images/compressed/13.jpg",
+      "thumbnail": "/assets/images/thumbnails/13.jpg",
       "source": "https://unsplash.com/photos/saRU3vzmgkY"
     },
 
     {
-      "image": "/assets/images/compressed/14.jpeg",
+      "image": "/assets/images/compressed/14.jpg",
+      "thumbnail": "/assets/images/thumbnails/14.jpg",
       "source": "https://unsplash.com/photos/1z-kI6gIEpg"
     },
 
     {
-      "image": "/assets/images/compressed/15.jpeg",
+      "image": "/assets/images/compressed/15.jpg",
+      "thumbnail": "/assets/images/thumbnails/15.jpg",
       "source": "https://unsplash.com/photos/zHZ2nTnBnAQ"
     }
   ]
