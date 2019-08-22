@@ -60,9 +60,14 @@ var thumbnailGallery = (function() {
       li.appendChild(img);
       thumbnailsElm.appendChild(li);
     }
-    var modal = document.querySelector('.modal');
-    //add addEventListener
+    var modal = document.querySelector('.modal'),
+      closeBtn = document.querySelector('.close-button');
+
     thumbnailsElm.addEventListener('click', function(e) {
+      modal.classList.toggle('show-modal');
+    });
+    closeBtn.addEventListener('click', function(e) {
+      console.log("close");
       modal.classList.toggle('show-modal');
     });
   };

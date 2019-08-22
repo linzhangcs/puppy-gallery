@@ -49,11 +49,12 @@ a {
 }
 
 ul#thumbnails {
+  list-style: none;
   padding: 0;
+  margin: 0
 }
 
 ul#thumbnails li {
-  list-style: none;
   cursor: pointer;
   display: inline-block;
   padding-left: 6px;
@@ -68,6 +69,8 @@ ul#thumbnails li {
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.5s, opacity 0.5s, transform 0.5;
 }
 
 .modal-content {
@@ -76,6 +79,7 @@ ul#thumbnails li {
   left: 50%;
   background-color: #fff;
   padding: 1rem 1.5rem;
+  transform: translate(-50%, -50%);
 }
 
 .show-modal {
