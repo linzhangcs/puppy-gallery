@@ -56,4 +56,29 @@ ul#thumbnails li {
   list-style: none;
   cursor: pointer;
   display: inline-block;
+  padding-left: 6px;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
 }

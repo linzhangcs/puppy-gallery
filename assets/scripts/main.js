@@ -32,8 +32,6 @@ var thumbnailGallery = (function() {
   var createImgElm = function(src, alt, title) {
     var img = document.createElement('img');
     img.src = src;
-    img.width = 300;
-    img.height = 400;
     if (alt != null) {
       img.alt = alt;
     }
@@ -41,6 +39,12 @@ var thumbnailGallery = (function() {
       img.title = title;
     }
     return img;
+  };
+
+  var createListElm = function(src) {
+    var li = document.createElement('li');
+    li.setAttribute('data-original', src);
+    return li;
   };
 
   function displayThumbnails(imageJson) {
@@ -52,10 +56,15 @@ var thumbnailGallery = (function() {
 
     for (var i = 0; i < items.length; i++) {
       img = createImgElm(items[i].thumbnail, '', '');
-      li = document.createElement('li');
+      li = createListElm(items[i].image);
       li.appendChild(img);
       thumbnailsElm.appendChild(li);
     }
+    var modal = document.querySelector('.modal');
+    //add addEventListener
+    thumbnailsElm.addEventListener('click', function(e) {
+      modal.classList.toggle('show-modal');
+    });
   };
 
   var sayhello = function() {
@@ -68,5 +77,6 @@ var thumbnailGallery = (function() {
     init: init
   }
 }());
+
 thumbnailGallery.sayhello();
 thumbnailGallery.init('assets/data/dogs-compressed.json');
