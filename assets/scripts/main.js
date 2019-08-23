@@ -1,7 +1,7 @@
 /*
  * thumbnailGalleryViewer
  *
- * Description: using this function to load local json data,
+ * Description: use this function to load json data,
  * render image JSON data as a thumbnail gallery, add user
  * interaction like clicking the thumbnail to view its full size version.
  *
@@ -11,7 +11,8 @@ var thumbnailGalleryViewer = (function() {
 
   var modal = document.querySelector('.modal'),
     modalContent = document.querySelector('.modal-content'),
-    currentChuck = 0;
+    currentChuck = 0,
+    data;
 
   var init = function(filePath) {
     // getImageData(filePath, displayImages)
@@ -33,18 +34,20 @@ var thumbnailGalleryViewer = (function() {
   };
 
   var chunkData = function(imageJson) {
-    var data = JSON.parse(imageJson),
-      count = 9,
+    if (data === undefined) {
+      data = JSON.parse(imageJson);
+      data = data.dogs;
+    }
+    var count = 9,
       dataChunk;
-
-    data = data.dogs;
-
     var numberOfChunks = Math.ceil(data.length / count);
     startIndex = currentChuck * count;
 
     if (currentChuck <= numberOfChunks) {
       dataChunk = data.slice(startIndex, startIndex + count);
       currentChuck++;
+    } else {
+      dataChunk = null;
     }
     console.log(dataChunk);
     displayImages(dataChunk);
@@ -113,9 +116,14 @@ var thumbnailGalleryViewer = (function() {
   var displayImages = function(data) {
     // data = JSON.parse(imageJson);
     // var items = data.dogs,
+    if (data === null) {
+      displayMsg();
+      return;
+    }
     var items = data,
       img, li,
       closeBtn = document.querySelector('.close-button'),
+      loadBtn = document.querySelector('.load-button'),
       thumbnailsElm = document.querySelector('.thumbnails');
 
     for (var i = 0; i < items.length; i++) {
@@ -136,10 +144,15 @@ var thumbnailGalleryViewer = (function() {
       toggleModal();
     });
 
+    loadBtn.addEventListener('click', function(e) {
+      chunkData(data);
+    })
     closeBtn.addEventListener('click', function(e) {
       console.log("close");
       toggleModal();
     });
+
+
   };
 
   var sayhello = function() {
