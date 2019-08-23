@@ -10,12 +10,13 @@
 var thumbnailGalleryViewer = (function() {
 
   var modal = document.querySelector('.modal'),
-    modalContent = document.querySelector('.modal-content');
+    modalContent = document.querySelector('.modal-content'),
+    currentChuck = 0;
 
   var init = function(filePath) {
-    // var data;
-    getImageData(filePath, displayImages)
-    // return data;
+    // getImageData(filePath, displayImages)
+    getImageData(filePath, chunkData);
+
   };
 
   var getImageData = function(filePath, callback) {
@@ -29,6 +30,24 @@ var thumbnailGalleryViewer = (function() {
       }
     }
     request.send(null);
+  };
+
+  var chunkData = function(imageJson) {
+    var data = JSON.parse(imageJson),
+      count = 9,
+      dataChunk;
+
+    data = data.dogs;
+
+    var numberOfChunks = Math.ceil(data.length / count);
+    startIndex = currentChuck * count;
+
+    if (currentChuck <= numberOfChunks) {
+      dataChunk = data.slice(startIndex, startIndex + count);
+      currentChuck++;
+    }
+    console.log(dataChunk);
+    displayImages(dataChunk);
   };
 
   var createImgElm = function(src, alt, title) {
@@ -91,9 +110,10 @@ var thumbnailGalleryViewer = (function() {
     var ratio = img.naturalHeight / img.naturalWidth;
   };
 
-  var displayImages = function(imageJson) {
-    data = JSON.parse(imageJson);
-    var items = data.dogs,
+  var displayImages = function(data) {
+    // data = JSON.parse(imageJson);
+    // var items = data.dogs,
+    var items = data,
       img, li,
       closeBtn = document.querySelector('.close-button'),
       thumbnailsElm = document.querySelector('.thumbnails');
