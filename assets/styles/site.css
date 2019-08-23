@@ -89,11 +89,15 @@ ul.thumbnails li {
 }
 
 .close-button {
-  float: right;
+  float: left;
   font-size: 28px;
   background: transparent;
   border: transparent;
   position: absolute;
-  top: 0; //Todo - find the placement for btn
-  left: 90%;
+  top: 0;
+}
+
+.load-button {
+  margin: 20px 0;
+  font-size: 18px;
 }

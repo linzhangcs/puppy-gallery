@@ -11,7 +11,9 @@ var thumbnailGalleryViewer = (function() {
 
   var modal = document.querySelector('.modal'),
     modalContent = document.querySelector('.modal-content'),
+    loadBtn = document.querySelector('.load-button'),
     currentChuck = 0,
+    numberOfChunks,
     data;
 
   var init = function(filePath) {
@@ -40,10 +42,11 @@ var thumbnailGalleryViewer = (function() {
     }
     var count = 9,
       dataChunk;
-    var numberOfChunks = Math.ceil(data.length / count);
+
+    numberOfChunks = Math.ceil(data.length / count);
     startIndex = currentChuck * count;
 
-    if (currentChuck <= numberOfChunks) {
+    if (currentChuck < numberOfChunks) {
       dataChunk = data.slice(startIndex, startIndex + count);
       currentChuck++;
     } else {
@@ -74,23 +77,6 @@ var thumbnailGalleryViewer = (function() {
     return li;
   };
 
-  var createModalContent = function(src) {
-    var wh = modalContentSize(src)
-    var modalContent = document.createElement('div');
-    modalContent.setAttribute('width', wh.width);
-    modalContent.setAttribute('height', wh.height);
-
-    var closeBtn = document.createElement('button');
-    closeBtn.classList.add('close-button');
-    closeBtn.innerHTML = '&times;';
-
-    var newImg = createImgElm(src, '', '');
-
-    modalContent.appendChild(closeBtn);
-    modalContent.appendChild(newImg);
-
-  };
-
   var toggleModal = function() {
     modal.classList.toggle('show-modal');
   };
@@ -113,17 +99,19 @@ var thumbnailGalleryViewer = (function() {
     var ratio = img.naturalHeight / img.naturalWidth;
   };
 
+  var removeLoadButton = function() {
+    if (loadBtn) {
+      loadBtn.parentNode.removeChild(loadBtn);
+    }
+  };
+
   var displayImages = function(data) {
-    // data = JSON.parse(imageJson);
-    // var items = data.dogs,
-    if (data === null) {
-      displayMsg();
-      return;
+    if (currentChuck >= numberOfChunks) {
+      removeLoadButton();
     }
     var items = data,
       img, li,
       closeBtn = document.querySelector('.close-button'),
-      loadBtn = document.querySelector('.load-button'),
       thumbnailsElm = document.querySelector('.thumbnails');
 
     for (var i = 0; i < items.length; i++) {
@@ -133,6 +121,7 @@ var thumbnailGalleryViewer = (function() {
       li.appendChild(img);
       thumbnailsElm.appendChild(li);
     }
+
 
     thumbnailsElm.addEventListener('click', function(event) {
       //get the full size image url and add to the modal content
@@ -146,9 +135,9 @@ var thumbnailGalleryViewer = (function() {
 
     loadBtn.addEventListener('click', function(e) {
       chunkData(data);
-    })
+    });
+
     closeBtn.addEventListener('click', function(e) {
-      console.log("close");
       toggleModal();
     });
 
