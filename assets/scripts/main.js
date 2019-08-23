@@ -85,7 +85,6 @@ var thumbnailGalleryViewer = (function() {
     } else {
       dataChunk = null;
     }
-    console.log(dataChunk);
     displayImages(dataChunk);
   };
   /**
@@ -107,7 +106,6 @@ var thumbnailGalleryViewer = (function() {
     if (title != null) {
       img.title = title;
     }
-    console.log(img);
     return img;
   };
   /**
@@ -141,7 +139,6 @@ var thumbnailGalleryViewer = (function() {
     // newImg.addEventListener('load', function(e) {
     //   adjustModalContentSize(newImg);
     // });
-    console.log("modal image");
   };
   var adjustModalContentSize = function(img) {
     //Aspect ratio
@@ -180,7 +177,7 @@ var thumbnailGalleryViewer = (function() {
    */
   var sayhello = function() {
     var msg = ['(U •́ .̫ •̀ U) woof', 'woof (υ◉ω◉υ) woof (υ◉ω◉υ) woof', 'o(^^ )o——–⊆^U)┬┬~… yay', 'o(･ω･｡)o—∈･^ミ┬┬~ summer', '໒( ◉ ᴥ ◉ )७ hi'];
-    console.log(msg[Math.floor(Math.random() * msg.length)]);
+    console.log("Thanks for reviewing my code! Welcome your feedback. Here is a cute text dog for you!" + msg[Math.floor(Math.random() * msg.length)]);
   };
 
   return {
