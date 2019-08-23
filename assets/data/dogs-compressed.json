@@ -3,91 +3,121 @@
   {
       "image": "/assets/images/compressed/1.jpeg",
       "thumbnail": "/assets/images/thumbnails/1.jpg",
-      "source": "https://unsplash.com/photos/ybHtKz5He9Y"
+      "source": "https://unsplash.com/photos/ybHtKz5He9Y",
+      "alt": "A big fluffy white dog sitting in a backyard and looking happy",
+      "title": "Happy Dog"
     },
 
     {
       "image": "/assets/images/compressed/2.jpeg",
       "thumbnail": "/assets/images/thumbnails/2.jpg",
-      "source": "https://unsplash.com/photos/rY79kwEEyGo"
+      "source": "https://unsplash.com/photos/rY79kwEEyGo",
+      "alt": "A big fluffy white dog yawning in a backyard",
+      "title": "Yawning Dog"
     },
 
     {
       "image": "/assets/images/compressed/3.jpeg",
       "thumbnail": "/assets/images/thumbnails/3.jpg",
-      "source": "https://unsplash.com/photos/ngqyo2AYYnE"
+      "source": "https://unsplash.com/photos/ngqyo2AYYnE",
+      "alt": "A cute little golden retriever puppy",
+      "title": "Puppy"
     },
 
     {
       "image": "/assets/images/compressed/4.jpeg",
       "thumbnail": "/assets/images/thumbnails/4.jpg",
-      "source": "https://unsplash.com/photos/9A64wd1QaAU"
+      "source": "https://unsplash.com/photos/9A64wd1QaAU",
+      "alt": "A puppy hanging out a backpack",
+      "title": "Puppy in a bag"
     },
 
     {
       "image": "/assets/images/compressed/5.jpeg",
       "thumbnail": "/assets/images/thumbnails/5.jpg",
-      "source": "https://unsplash.com/photos/915UJQaxtrk"
+      "source": "https://unsplash.com/photos/915UJQaxtrk",
+      "alt": "A big fluffy white dog sitting in a rock and looking at a big blue lake",
+      "title": "Hanging out"
     },
 
     {
       "image": "/assets/images/compressed/6.jpeg",
       "thumbnail": "/assets/images/thumbnails/6.jpg",
-      "source": "https://unsplash.com/photos/mx0DEnfYxic"
+      "source": "https://unsplash.com/photos/mx0DEnfYxic",
+      "alt": "A young border collie smiling",
+      "title": "I am a happy Dog"
     },
 
     {
       "image": "/assets/images/compressed/7.jpeg",
       "thumbnail": "/assets/images/thumbnails/7.jpg",
-      "source": "https://unsplash.com/photos/OsOQhAzcEKc"
+      "source": "https://unsplash.com/photos/OsOQhAzcEKc",
+      "alt": "A fluffy german shepherd sitting still",
+      "title": "Serious"
     },
 
     {
       "image": "/assets/images/compressed/8.jpeg",
       "thumbnail": "/assets/images/thumbnails/8.jpg",
-      "source": "https://unsplash.com/photos/6WneSv56YVI"
+      "source": "https://unsplash.com/photos/6WneSv56YVI",
+      "alt": "A young dog sits in the snow with his eyes closed",
+      "title": "Not looking"
     },
 
     {
       "image": "/assets/images/compressed/9.jpeg",
       "thumbnail": "/assets/images/thumbnails/9.jpg",
-      "source": "https://unsplash.com/photos/CdVG9f96kyg"
+      "source": "https://unsplash.com/photos/CdVG9f96kyg",
+      "alt": "A smiling golden retriever",
+      "title": "Happy boi"
     },
 
     {
       "image": "/assets/images/compressed/10.jpeg",
       "thumbnail": "/assets/images/thumbnails/10.jpg",
-      "source": "https://unsplash.com/photos/bVA2DI7c9e8"
+      "source": "https://unsplash.com/photos/bVA2DI7c9e8",
+      "alt": "A tiny puppy holding a yellow leaf with his teeth",
+      "title": "So tiny and precious"
     },
 
     {
       "image": "/assets/images/compressed/11.jpeg",
       "thumbnail": "/assets/images/thumbnails/11.jpg",
-      "source": "https://unsplash.com/photos/GvhSUEN-Lm8"
+      "source": "https://unsplash.com/photos/GvhSUEN-Lm8",
+      "alt": "A dog enjoying his time on the water",
+      "title": "hmmm"
     },
 
     {
       "image": "/assets/images/compressed/12.jpeg",
       "thumbnail": "/assets/images/thumbnails/12.jpg",
-      "source": "https://unsplash.com/photos/t2XHKIdc4Kw"
+      "source": "https://unsplash.com/photos/t2XHKIdc4Kw",
+      "alt": "A puppy walking towards you",
+      "title": "What is over here"
     },
 
     {
       "image": "/assets/images/compressed/13.jpeg",
       "thumbnail": "/assets/images/thumbnails/13.jpg",
-      "source": "https://unsplash.com/photos/saRU3vzmgkY"
+      "source": "https://unsplash.com/photos/saRU3vzmgkY",
+      "alt": "side view of a young dog",
+      "title": "I see you"
     },
 
     {
       "image": "/assets/images/compressed/14.jpeg",
       "thumbnail": "/assets/images/thumbnails/14.jpg",
-      "source": "https://unsplash.com/photos/1z-kI6gIEpg"
+      "source": "https://unsplash.com/photos/1z-kI6gIEpg",
+      "alt": "A group of puppies playing together",
+      "title": "Puppy group"
     },
 
     {
       "image": "/assets/images/compressed/15.jpeg",
       "thumbnail": "/assets/images/thumbnails/15.jpg",
-      "source": "https://unsplash.com/photos/zHZ2nTnBnAQ"
+      "source": "https://unsplash.com/photos/zHZ2nTnBnAQ",
+      "alt": "A big fluffy dog taking a nap in the street",
+      "title": "Nap time"
     }
   ]
 }
