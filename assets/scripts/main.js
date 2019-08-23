@@ -1,19 +1,21 @@
 /*
- * imageGallery
+ * thumbnailGalleryViewer
  *
  * Description: using this function to load local json data,
- * render data to to the page, and add event listeners for user
- * interaction.
+ * render image JSON data as a thumbnail gallery, add user
+ * interaction like clicking the thumbnail to view its full size version.
  *
- * param
- * return
+ * @param string - filepath for JSON data
  */
-var thumbnailGallery = (function() {
+var thumbnailGalleryViewer = (function() {
+
+  var modal = document.querySelector('.modal'),
+    modalContent = document.querySelector('.modal-content');
 
   var init = function(filePath) {
-    var data;
-    getImageData(filePath, displayThumbnails)
-    return data;
+    // var data;
+    getImageData(filePath, displayImages)
+    // return data;
   };
 
   var getImageData = function(filePath, callback) {
@@ -32,8 +34,9 @@ var thumbnailGallery = (function() {
   var createImgElm = function(src, alt, title) {
     var img = document.createElement('img');
     img.src = src;
+
     img.setAttribute('width', '100%');
-    img.setAttribute('height', '98%');
+    img.setAttribute('height', '100%');
     if (alt != null) {
       img.alt = alt;
     }
@@ -49,33 +52,56 @@ var thumbnailGallery = (function() {
     return li;
   };
 
+  var createModalContent = function(src) {
+    var wh = modalContentSize(src)
+    var modalContent = document.createElement('div');
+    modalContent.setAttribute('width', wh.width);
+    modalContent.setAttribute('height', wh.height);
+
+    var closeBtn = document.createElement('button');
+    closeBtn.classList.add('close-button');
+    closeBtn.innerHTML = '&times;';
+
+    var newImg = createImgElm(src, '', '');
+
+    modalContent.appendChild(closeBtn);
+    modalContent.appendChild(newImg);
+
+  };
+
   var toggleModal = function() {
-    var modal = document.querySelector('.modal');
     modal.classList.toggle('show-modal');
-  }
+  };
 
   var populateModalImage = function(src) {
-    var modalContent = document.querySelector('.modal-content');
-    //remove the previous image
     var fullImg = modalContent.getElementsByTagName('img');
     if (fullImg.length > 0) {
       fullImg = fullImg[0];
       modalContent.removeChild(fullImg);
     }
-    modalContent.appendChild(createImgElm(src, '', ''));
-  }
+    var newImg = createImgElm(src, '', '');
+    modalContent.appendChild(newImg);
+    newImg.addEventListener('load', function(e) {
+      adjustModalContentSize(newImg);
+    });
+  };
 
-  function displayThumbnails(imageJson) {
+  var adjustModalContentSize = function(img) {
+    //Aspect ratio
+    var ratio = img.naturalHeight / img.naturalWidth;
+  };
+
+  var displayImages = function(imageJson) {
     data = JSON.parse(imageJson);
-    // console.table(data);
     var items = data.dogs,
       img, li,
       closeBtn = document.querySelector('.close-button'),
-      thumbnailsElm = document.getElementById('thumbnails');
+      thumbnailsElm = document.querySelector('.thumbnails');
 
     for (var i = 0; i < items.length; i++) {
-      img = createImgElm(items[i].thumbnail, '', '');
-      li = createListElm(items[i].image);
+      var item = items[i];
+      img = createImgElm(item.thumbnail, item.alt, item.title);
+      li = createListElm(item.image);
       li.appendChild(img);
       thumbnailsElm.appendChild(li);
     }
@@ -89,6 +115,7 @@ var thumbnailGallery = (function() {
       populateModalImage(fullsizeImageSrc);
       toggleModal();
     });
+
     closeBtn.addEventListener('click', function(e) {
       console.log("close");
       toggleModal();
@@ -106,5 +133,5 @@ var thumbnailGallery = (function() {
   }
 }());
 
-thumbnailGallery.sayhello();
-thumbnailGallery.init('assets/data/dogs-compressed.json');
+thumbnailGalleryViewer.sayhello();
+thumbnailGalleryViewer.init('assets/data/dogs-compressed.json');

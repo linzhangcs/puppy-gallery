@@ -48,13 +48,13 @@ a {
   margin-right: auto;
 }
 
-ul#thumbnails {
+ul.thumbnails {
   list-style: none;
   padding: 0;
   margin: 0
 }
 
-ul#thumbnails li {
+ul.thumbnails li {
   cursor: pointer;
   display: inline-block;
   padding-left: 6px;
@@ -70,25 +70,30 @@ ul#thumbnails li {
   opacity: 0;
   visibility: hidden;
   transform: scale(1.1);
-  transition: visibility 0s linear 0.5s, opacity 0.5s, transform 0.5;
+  transition: visibility 0s linear 0.3s, opacity 0.3s 0s, transform 0.5s;
 }
 
 .modal-content {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 80%;
-  height: 80%;
-  background-color: #fff;
-  padding: 1rem 1.5rem;
+  width: 50%;
+  height: 50%;
   transform: translate(-50%, -50%);
 }
 
 .show-modal {
   opacity: 1;
   visibility: visible;
+  transition: visibility 0s linear 0.2s, opacity 0.5s 0s, transform 0.5s;
 }
 
 .close-button {
   float: right;
+  font-size: 28px;
+  background: transparent;
+  border: transparent;
+  position: absolute;
+  top: 0; //Todo - find the placement for btn
+  left: 90%;
 }
