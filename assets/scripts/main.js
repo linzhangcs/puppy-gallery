@@ -32,6 +32,8 @@ var thumbnailGallery = (function() {
   var createImgElm = function(src, alt, title) {
     var img = document.createElement('img');
     img.src = src;
+    img.setAttribute('width', '100%');
+    img.setAttribute('height', '98%');
     if (alt != null) {
       img.alt = alt;
     }
@@ -47,11 +49,28 @@ var thumbnailGallery = (function() {
     return li;
   };
 
+  var toggleModal = function() {
+    var modal = document.querySelector('.modal');
+    modal.classList.toggle('show-modal');
+  }
+
+  var populateModalImage = function(src) {
+    var modalContent = document.querySelector('.modal-content');
+    //remove the previous image
+    var fullImg = modalContent.getElementsByTagName('img');
+    if (fullImg.length > 0) {
+      fullImg = fullImg[0];
+      modalContent.removeChild(fullImg);
+    }
+    modalContent.appendChild(createImgElm(src, '', ''));
+  }
+
   function displayThumbnails(imageJson) {
     data = JSON.parse(imageJson);
     // console.table(data);
     var items = data.dogs,
       img, li,
+      closeBtn = document.querySelector('.close-button'),
       thumbnailsElm = document.getElementById('thumbnails');
 
     for (var i = 0; i < items.length; i++) {
@@ -60,15 +79,19 @@ var thumbnailGallery = (function() {
       li.appendChild(img);
       thumbnailsElm.appendChild(li);
     }
-    var modal = document.querySelector('.modal'),
-      closeBtn = document.querySelector('.close-button');
 
-    thumbnailsElm.addEventListener('click', function(e) {
-      modal.classList.toggle('show-modal');
+    thumbnailsElm.addEventListener('click', function(event) {
+      //get the full size image url and add to the modal content
+      var fullsizeImageSrc;
+      if (event.target) {
+        fullsizeImageSrc = event.target.parentElement.getAttribute('data-original');
+      }
+      populateModalImage(fullsizeImageSrc);
+      toggleModal();
     });
     closeBtn.addEventListener('click', function(e) {
       console.log("close");
-      modal.classList.toggle('show-modal');
+      toggleModal();
     });
   };
 
