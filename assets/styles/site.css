@@ -89,12 +89,13 @@ ul.thumbnails li {
 }
 
 .close-button {
-  float: left;
+  float: right;
   font-size: 28px;
   background: transparent;
   border: transparent;
   position: absolute;
   top: 0;
+  right: 0;
 }
 
 .load-button {

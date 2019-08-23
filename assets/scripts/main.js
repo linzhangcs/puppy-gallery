@@ -12,14 +12,15 @@ var thumbnailGalleryViewer = (function() {
   var modal = document.querySelector('.modal'),
     modalContent = document.querySelector('.modal-content'),
     loadBtn = document.querySelector('.load-button'),
+    closeBtn = document.querySelector('.close-button'),
+    thumbnailsElm = document.getElementsByClassName('thumbnails')[0],
     currentChuck = 0,
     numberOfChunks,
     data;
 
   var init = function(filePath) {
-    // getImageData(filePath, displayImages)
     getImageData(filePath, chunkData);
-
+    addOnClickHandlers()
   };
 
   var getImageData = function(filePath, callback) {
@@ -33,6 +34,26 @@ var thumbnailGalleryViewer = (function() {
       }
     }
     request.send(null);
+  };
+
+  var addOnClickHandlers = function() {
+    thumbnailsElm.addEventListener('click', function(event) {
+      //get the full size image url and add to the modal content
+      var fullsizeImageSrc;
+      if (event.target) {
+        fullsizeImageSrc = event.target.parentElement.getAttribute('data-original');
+      }
+      populateModalImage(fullsizeImageSrc);
+      toggleModal();
+    });
+
+    loadBtn.addEventListener('click', function(e) {
+      chunkData(data);
+    });
+
+    closeBtn.addEventListener('click', function(e) {
+      toggleModal();
+    });
   };
 
   var chunkData = function(imageJson) {
@@ -68,6 +89,7 @@ var thumbnailGalleryViewer = (function() {
     if (title != null) {
       img.title = title;
     }
+    console.log(img);
     return img;
   };
 
@@ -78,6 +100,7 @@ var thumbnailGalleryViewer = (function() {
   };
 
   var toggleModal = function() {
+    console.log("toggle Modal");
     modal.classList.toggle('show-modal');
   };
 
@@ -89,9 +112,10 @@ var thumbnailGalleryViewer = (function() {
     }
     var newImg = createImgElm(src, '', '');
     modalContent.appendChild(newImg);
-    newImg.addEventListener('load', function(e) {
-      adjustModalContentSize(newImg);
-    });
+    // newImg.addEventListener('load', function(e) {
+    //   adjustModalContentSize(newImg);
+    // });
+    console.log("modal image");
   };
 
   var adjustModalContentSize = function(img) {
@@ -109,10 +133,9 @@ var thumbnailGalleryViewer = (function() {
     if (currentChuck >= numberOfChunks) {
       removeLoadButton();
     }
+
     var items = data,
-      img, li,
-      closeBtn = document.querySelector('.close-button'),
-      thumbnailsElm = document.querySelector('.thumbnails');
+      img, li;
 
     for (var i = 0; i < items.length; i++) {
       var item = items[i];
@@ -121,27 +144,6 @@ var thumbnailGalleryViewer = (function() {
       li.appendChild(img);
       thumbnailsElm.appendChild(li);
     }
-
-
-    thumbnailsElm.addEventListener('click', function(event) {
-      //get the full size image url and add to the modal content
-      var fullsizeImageSrc;
-      if (event.target) {
-        fullsizeImageSrc = event.target.parentElement.getAttribute('data-original');
-      }
-      populateModalImage(fullsizeImageSrc);
-      toggleModal();
-    });
-
-    loadBtn.addEventListener('click', function(e) {
-      chunkData(data);
-    });
-
-    closeBtn.addEventListener('click', function(e) {
-      toggleModal();
-    });
-
-
   };
 
   var sayhello = function() {
