@@ -18,16 +18,23 @@ var thumbnailGalleryViewer = (function() {
     numberOfChunks,
     data;
 
+  /**
+   * Starting point
+   * @param  {String} filepath The path to the JSON file
+   */
   var init = function(filePath) {
     getImageData(filePath, chunkData);
-    addOnClickHandlers()
+    addOnClickHandlers();
   };
-
-  var getImageData = function(filePath, callback) {
+  /**
+   * Make a HTTP request to retrieve JSON data
+   * @param  {String} url The url of the JSON data
+   */
+  var getImageData = function(url, callback) {
     var request = new XMLHttpRequest();
     request.overrideMimeType('application/json');
 
-    request.open('GET', filePath, true);
+    request.open('GET', url, true);
     request.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == '200') {
         callback(this.responseText);
@@ -35,7 +42,9 @@ var thumbnailGalleryViewer = (function() {
     }
     request.send(null);
   };
-
+  /**
+   * Add event handlers for clicking events
+   */
   var addOnClickHandlers = function() {
     thumbnailsElm.addEventListener('click', function(event) {
       //get the full size image url and add to the modal content
@@ -55,7 +64,10 @@ var thumbnailGalleryViewer = (function() {
       toggleModal();
     });
   };
-
+  /**
+   * Breaks the Total JSON data into 9 item at a time chunks
+   * @param  {JSON} imageJson JSON data
+   */
   var chunkData = function(imageJson) {
     if (data === undefined) {
       data = JSON.parse(imageJson);
@@ -76,7 +88,13 @@ var thumbnailGalleryViewer = (function() {
     console.log(dataChunk);
     displayImages(dataChunk);
   };
-
+  /**
+   * Create a img element with alt and title attribute set
+   * @param  {String} src The path of the image
+   * @param  {String} alt A description of the image
+   * @param  {String} title The name of the image
+   * @return {Image Element} img A img element with alt and title attribute set
+   */
   var createImgElm = function(src, alt, title) {
     var img = document.createElement('img');
     img.src = src;
@@ -92,18 +110,26 @@ var thumbnailGalleryViewer = (function() {
     console.log(img);
     return img;
   };
-
+  /**
+   * Create a list element with a data-original attribute set to src
+   * @param  {String} src The path for an image
+   * @return {ListElement} li A list element with a data-original attribute set to src
+   */
   var createListElm = function(src) {
     var li = document.createElement('li');
     li.setAttribute('data-original', src);
     return li;
   };
-
+  /**
+   * Toggle the visibility of the modal
+   */
   var toggleModal = function() {
-    console.log("toggle Modal");
     modal.classList.toggle('show-modal');
   };
-
+  /**
+   * Add the clicked thumbnail's full-size image to modal content div
+   * @param  {String} src The path for a full-size image
+   */
   var populateModalImage = function(src) {
     var fullImg = modalContent.getElementsByTagName('img');
     if (fullImg.length > 0) {
@@ -117,23 +143,26 @@ var thumbnailGalleryViewer = (function() {
     // });
     console.log("modal image");
   };
-
   var adjustModalContentSize = function(img) {
     //Aspect ratio
     var ratio = img.naturalHeight / img.naturalWidth;
   };
-
+  /**
+   * Remove The button that is binded to return more image data
+   */
   var removeLoadButton = function() {
     if (loadBtn) {
       loadBtn.parentNode.removeChild(loadBtn);
     }
   };
-
+  /**
+   * Create and add thumbnails to the thumbnails element
+   * @param  {Array} data Chunk of the Parsed JSON data.
+   */
   var displayImages = function(data) {
     if (currentChuck >= numberOfChunks) {
       removeLoadButton();
     }
-
     var items = data,
       img, li;
 
@@ -146,6 +175,9 @@ var thumbnailGalleryViewer = (function() {
     }
   };
 
+  /**
+   * prints out a random dog related text emoticons to the console
+   */
   var sayhello = function() {
     var msg = ['(U •́ .̫ •̀ U) woof', 'woof (υ◉ω◉υ) woof (υ◉ω◉υ) woof', 'o(^^ )o——–⊆^U)┬┬~… yay', 'o(･ω･｡)o—∈･^ミ┬┬~ summer', '໒( ◉ ᴥ ◉ )७ hi'];
     console.log(msg[Math.floor(Math.random() * msg.length)]);
