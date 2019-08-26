@@ -52,8 +52,10 @@ var thumbnailGalleryViewer = (function() {
       if (event.target) {
         fullsizeImageSrc = event.target.parentElement.getAttribute('data-original');
       }
-      populateModalImage(fullsizeImageSrc);
-      toggleModal();
+      if (fullsizeImageSrc !== null) {
+        populateModalImage(fullsizeImageSrc);
+        toggleModal();
+      }
     });
 
     loadBtn.addEventListener('click', function(e) {
@@ -141,7 +143,10 @@ var thumbnailGalleryViewer = (function() {
       adjustModalContentSize(newImg);
     });
   };
-
+  /**
+   * Change the size of the modal content size based on the proportion of the full size image
+   * @param  {String} img The image that is added to the modal content
+   */
   var adjustModalContentSize = function(img) {
     removeClass(modalContent, 'modal-content-tall');
     removeClass(modalContent, 'modal-content-wide');
@@ -152,7 +157,11 @@ var thumbnailGalleryViewer = (function() {
       modalContent.classList.add('modal-content-wide');
     }
   };
-
+  /**
+   * Remove a css class from a element if it has the class
+   * @param  {String} element The targeted element
+   * @param  {String} className The class that should be removed
+   */
   var removeClass = function(element, className) {
     if (element.classList.contains(className)) {
       element.classList.remove(className);

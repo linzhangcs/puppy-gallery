@@ -5,6 +5,8 @@
   --font-serif: Georgia, serif;
   --color-secondary: #333;
   --color-link: #635ac7;
+  /*Contrast Ratio with black text 7.27:1*/
+  --color-btn: #eb7911;
   font-family: var(--font-sans);
   font-weight: normal;
   line-height: 1.5;
@@ -16,6 +18,13 @@ body {
 
 a {
   color: var(--color-link);
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: transparent;
 }
 
 /* Snippets */
@@ -87,7 +96,6 @@ ul.thumbnails li {
 
 .modal-content-tall {
   width: 80%;
-  /* max-width: 85vw; */
 }
 
 .show-modal {
@@ -99,15 +107,80 @@ ul.thumbnails li {
 .close-button {
   float: right;
   font-size: 28px;
-  background: transparent;
-  border: transparent;
   position: absolute;
   top: 0;
   right: 0;
-  cursor: pointer;
 }
 
 .load-button {
   margin: 20px 0;
+  padding: 10px;
   font-size: 18px;
+  border-radius: 4px;
+  background-color: var(--color-btn);
+}
+
+/* phones*/
+
+@media (min-width:320px) {
+  .modal-content-wide {
+    width: 80%;
+  }
+  .modal-content-tall {
+    width: 60%;
+  }
+}
+
+/* smaller tablets */
+
+@media (min-width:480px) {
+  .modal-content-wide {
+    width: 60%;
+  }
+  .modal-content-tall {
+    width: 40%;
+  }
+}
+
+@media (min-width:768px) and (orientation: landscape) {
+  .modal-content-tall {
+    width: 24%;
+  }
+}
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+
+@media (min-width:961px) {
+  .modal-content-wide {
+    width: 60%;
+  }
+  .modal-content-tall {
+    width: 40%;
+  }
+}
+
+@media (min-width:812px) and (orientation: landscape) {
+  .modal-content-tall {
+    width: 24%;
+  }
+}
+
+/* big landscape tablets, laptops, desktops, and hi-res laptops and desktops*/
+
+@media (min-width:1025px) {
+  .modal-content-wide {
+    width: 60%;
+  }
+  .modal-content-tall {
+    width: 50%;
+  }
+}
+
+@media (min-width:1281px) {
+  .modal-content-wide {
+    width: 60%;
+  }
+  .modal-content-tall {
+    width: 27%;
+  }
 }
