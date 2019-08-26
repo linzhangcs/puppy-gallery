@@ -1,8 +1,8 @@
 {
   "dogs": [
   {
-      "image": "/assets/images/compressed/1.jpeg",
-      "thumbnail": "/assets/images/thumbnails/1.jpg",
+      "image": "../assets/images/compressed/1.jpeg",
+      "thumbnail": "../assets/images/thumbnails/1.jpg",
       "source": "https://unsplash.com/photos/ybHtKz5He9Y",
       "alt": "A big fluffy white dog sitting in a backyard and looking happy",
       "title": "Happy Dog"
