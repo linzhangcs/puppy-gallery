@@ -55,7 +55,7 @@ ul.thumbnails {
 }
 
 ul.thumbnails li {
-  cursor: pointer;
+  cursor: zoom-in;
   display: inline-block;
   padding-left: 6px;
 }
@@ -77,9 +77,17 @@ ul.thumbnails li {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 50%;
-  height: 50%;
+  overflow: auto;
   transform: translate(-50%, -50%);
+}
+
+.modal-content-wide {
+  width: 80%;
+}
+
+.modal-content-tall {
+  width: 80%;
+  /* max-width: 85vw; */
 }
 
 .show-modal {
@@ -96,6 +104,7 @@ ul.thumbnails li {
   position: absolute;
   top: 0;
   right: 0;
+  cursor: pointer;
 }
 
 .load-button {

@@ -136,14 +136,28 @@ var thumbnailGalleryViewer = (function() {
     }
     var newImg = createImgElm(src, '', '');
     modalContent.appendChild(newImg);
-    // newImg.addEventListener('load', function(e) {
-    //   adjustModalContentSize(newImg);
-    // });
+
+    newImg.addEventListener('load', function(e) {
+      adjustModalContentSize(newImg);
+    });
   };
+
   var adjustModalContentSize = function(img) {
-    //Aspect ratio
-    var ratio = img.naturalHeight / img.naturalWidth;
+    removeClass(modalContent, 'modal-content-tall');
+    removeClass(modalContent, 'modal-content-wide');
+
+    if (img.naturalHeight > img.naturalWidth) {
+      modalContent.classList.add('modal-content-tall');
+    } else {
+      modalContent.classList.add('modal-content-wide');
+    }
   };
+
+  var removeClass = function(element, className) {
+    if (element.classList.contains(className)) {
+      element.classList.remove(className);
+    }
+  }
   /**
    * Remove The button that is binded to return more image data
    */
